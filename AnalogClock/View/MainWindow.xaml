@@ -1,0 +1,164 @@
+﻿<!--Задаем параметры окна, подключаем пространства имен -->
+    <Window x:Class="AnalogClock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnalogClock"
+        xmlns:vm="clr-namespace:AnalogClock.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="602" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+
+    <Window.DataContext>
+        <vm:ClockVM/>
+    </Window.DataContext>
+    <Grid Margin="0,0,0,-124">
+        <!-- Задаем круглую форму часов, устанавливаем цвет фона – WhiteSmoke-->
+        <Border BorderThickness="10" BorderBrush="Gray" CornerRadius="300" Width="520" Height="520" Background="WhiteSmoke" Margin="140,45,140,161">
+            <Ellipse Stroke="Gray" Fill="Gray" Margin="240,241,240,241" RenderTransformOrigin="1,-0.864"/>
+        </Border>
+
+        <!-- Создаем часовую стрелку, с помощью Binding задаем динамично изменяющеся значение угла поворота, привязанное к значению AngleHour из класса ClockVM -->
+        <Rectangle x:Name="HourHand" HorizontalAlignment="Left" Height="150" Margin="385,156,0,0" Stroke="Gray" VerticalAlignment="Top" Width="10" Fill="Gray" 
+                   RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding AngleHour}"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <!-- Создаем минутную стрелку, с помощью Binding задаем динамично изменяющеся значение угла поворота, привязанное к значению AngleMinute из класса ClockVM -->
+        <Rectangle x:Name="MinuteHand" HorizontalAlignment="Center" Height="200" Margin="0,102,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding AngleMinute}"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <!-- Создаем секундную стрелку, с помощью Binding задаем динамично изменяющеся значение угла поворота, привязанное к значению AngleSeconds из класса ClockVM -->
+        <Rectangle x:Name="SecondHand" HorizontalAlignment="Center" Height="214" Margin="0,88,0,0" Stroke="Gray" VerticalAlignment="Top" Width="2
+                   " Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding AngleSeconds}"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <!-- Радиально размечаем циферблат на 12 частей-->
+        <Rectangle x:Name="mark" HorizontalAlignment="Center" Height="30" Margin="0,45,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1"></Rectangle>
+        <Rectangle x:Name="mark2" HorizontalAlignment="Left" Height="30" Margin="396,535,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1"></Rectangle>
+        <Rectangle x:Name="mark_Copy" HorizontalAlignment="Center" Height="30" Margin="0,45,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform X="227" Y="233"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark2_Copy" HorizontalAlignment="Left" Height="30" Margin="396,535,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform X="-261" Y="-259"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark_Copy1" HorizontalAlignment="Center" Height="30" Margin="0,45,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="120"/>
+                    <TranslateTransform X="196.837" Y="343.904"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark2_Copy1" HorizontalAlignment="Left" Height="30" Margin="396,535,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="120"/>
+                    <TranslateTransform X="-229.027" Y="-384.917"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark_Copy2" HorizontalAlignment="Left" Height="30" Margin="308,128,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="150"/>
+                    <TranslateTransform X="196.837" Y="343.904"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark2_Copy2" HorizontalAlignment="Left" Height="30" Margin="492,439,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="150"/>
+                    <TranslateTransform X="-229.027" Y="-384.917"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark_Copy3" HorizontalAlignment="Center" Height="30" Margin="0,45,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="212.341"/>
+                    <TranslateTransform X="-125.097" Y="425.105"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark2_Copy3" HorizontalAlignment="Left" Height="30" Margin="396,535,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="212.341"/>
+                    <TranslateTransform X="133.002" Y="-482.647"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark_Copy4" HorizontalAlignment="Left" Height="30" Margin="308,128,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="242.341"/>
+                    <TranslateTransform X="-114.352" Y="248.79"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="mark2_Copy4" HorizontalAlignment="Left" Height="30" Margin="492,439,0,0" Stroke="Gray" VerticalAlignment="Top" Width="4" Fill="Gray" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="242.341"/>
+                    <TranslateTransform X="129.001" Y="-286.806"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+    </Grid>
+</Window>
