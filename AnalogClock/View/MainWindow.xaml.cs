@@ -26,5 +26,10 @@ namespace AnalogClock
             InitializeComponent();
             DataContext = new ClockVM();
         }
+        
+         private void Exit_Click(object sender, RoutedEventArgs e) 
+        {
+            App.Current.Shutdown(); //закрываем приложение
+        }
     }
 }
