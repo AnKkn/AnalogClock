@@ -159,6 +159,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        
+         <Button x:Name="Exit" Content="X" HorizontalAlignment="Left" Margin="752,10,0,0" VerticalAlignment="Top" Width="18" Height="22" FontSize="15" OpacityMask="Gray" Click="Exit_Click" RenderTransformOrigin="0.5,0.5"/>
 
     </Grid>
 </Window>
